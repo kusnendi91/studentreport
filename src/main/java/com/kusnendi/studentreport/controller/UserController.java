@@ -1,12 +1,11 @@
 package com.kusnendi.studentreport.controller;
 
-import java.util.List;
+
 import java.util.UUID;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,16 +31,6 @@ public class UserController {
 	
 	@Autowired
 	UserRepository userRepo;
-	
-	@GetMapping("/users")
-	public List<User> getAllUser(){
-		return userRepo.findAll();
-	}
-	
-	@GetMapping("/users/username={nama}")
-	public List<User> getUserByUsernameLike(@PathVariable(value = "username")String username){
-		return userRepo.findByUsernameContaining(username);
-	}
 	
 	@PostMapping("/users/register")
 	public ResponsePojo Register(@RequestBody UserPojo req) {
@@ -81,7 +70,7 @@ public class UserController {
 	@PostMapping("/users/logout")
 	public ResponsePojo Logout(@RequestBody BasePojo req) {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			user.setToken(null);
@@ -93,7 +82,7 @@ public class UserController {
 	@PostMapping("/users/forgotpwd")
 	public ResponsePojo changePassword(@RequestBody UserChangePwd req) {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			user.setPassword(BCrypt.hashpw(req.getNewPassword(), BCrypt.gensalt()));
@@ -105,7 +94,7 @@ public class UserController {
 	@PostMapping("/users/changename")
 	public ResponsePojo changeUsername(@RequestBody UserChangeName req) {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			user.setUsername(req.getNewUsername());
@@ -117,7 +106,7 @@ public class UserController {
 	@DeleteMapping("/users/delete/{id}")
 	public ResponsePojo deleteUser(@PathVariable(value = "id") Long id,@RequestBody BasePojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			User userdel = userRepo.findById(id).orElseThrow(()-> new DataNotFoundException(String.valueOf(id), "User"));

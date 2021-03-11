@@ -33,7 +33,7 @@ public class SubjectController {
 	@PostMapping("/subject/all")
 	public List<Subject> getAllSubject(@RequestBody BasePojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			return subjectRepo.findAll();
@@ -43,7 +43,7 @@ public class SubjectController {
 	@PostMapping("/subject/enabled")
 	public List<Subject> getAllEnabledSubject(@RequestBody BasePojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			return subjectRepo.findEnabledSubject();
@@ -53,7 +53,7 @@ public class SubjectController {
 	@PostMapping("/subject/getbyid")
 	public Subject getSubjectById(@RequestBody RequestIdPojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			return subjectRepo.findById(req.getId()).orElseThrow(() -> new DataNotFoundException(String.valueOf(req.getId()), "Subject"));
@@ -63,7 +63,7 @@ public class SubjectController {
 	@PostMapping("/subject/new")
 	public ResponsePojo newSubject(@RequestBody SubjectPojo req) {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			Subject sub = new Subject();
@@ -78,7 +78,7 @@ public class SubjectController {
 	@PostMapping("/subject/update")
 	public ResponsePojo updateSubject(@RequestBody SubjectPojo req) {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			Subject sub = subjectRepo.findById(req.getId()).orElseThrow(() -> new DataNotFoundException(String.valueOf(req.getId()), "Subject"));
@@ -93,7 +93,7 @@ public class SubjectController {
 	@PostMapping("/subject/delete")
 	public ResponsePojo deleteSubject(@RequestBody RequestIdPojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			Subject sub = subjectRepo.findById(req.getId()).orElseThrow(() -> new DataNotFoundException(String.valueOf(req.getId()), "Subject"));

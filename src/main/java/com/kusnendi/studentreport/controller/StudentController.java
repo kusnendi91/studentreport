@@ -38,7 +38,7 @@ public class StudentController {
 	@PostMapping("/student/all")
 	public List<Student> getAllStudent(@RequestBody BasePojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			return studentRepo.findAll();
@@ -49,7 +49,7 @@ public class StudentController {
 	@PostMapping("/student/getbyid")
 	public Student getStudentById(@RequestBody RequestIdPojo req) {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			return studentRepo.findById(req.getId()).orElseThrow(()-> new DataNotFoundException(String.valueOf(req.getId()), "Student"));
@@ -60,7 +60,7 @@ public class StudentController {
 	@PostMapping("/student/getbyname")
 	public List<Student> getStudentByNamaLike(@RequestBody RequestNamePojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			return studentRepo.findByNamaContaining(req.getName());
@@ -71,7 +71,7 @@ public class StudentController {
 	@PostMapping("/student/new")
 	public ResponsePojo newStudent(@RequestBody StudentPojo req) throws ParseException {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			sdf.setLenient(false);
@@ -92,7 +92,7 @@ public class StudentController {
 	@PostMapping("/student/update")
 	public ResponsePojo updateStudent(@RequestBody StudentPojo req) throws ParseException {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			Student stud = studentRepo.findById(req.getId()).orElseThrow(()-> new DataNotFoundException(String.valueOf(req.getId()), "Student"));
@@ -111,7 +111,7 @@ public class StudentController {
 	@PostMapping("/student/delete")
 	public ResponsePojo deleteStudent(@RequestBody RequestIdPojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			Student stud = studentRepo.findById(req.getId()).orElseThrow(()-> new DataNotFoundException(String.valueOf(req.getId()), "Student"));

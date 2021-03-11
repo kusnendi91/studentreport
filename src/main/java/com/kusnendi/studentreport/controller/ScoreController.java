@@ -51,7 +51,7 @@ public class ScoreController {
 	@PostMapping("/score/all")
 	public List<Scores> getAllScores(@RequestBody BasePojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			return scoreRepo.findAll();
@@ -61,7 +61,7 @@ public class ScoreController {
 	@PostMapping("/score/getbyid")
 	public Scores getScoresById(@RequestBody RequestIdPojo req) {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			return scoreRepo.findById(req.getId()).orElseThrow(() -> new DataNotFoundException(String.valueOf(req.getId()), "Scores"));
@@ -71,7 +71,7 @@ public class ScoreController {
 	@PostMapping("/score/failedsubject")
 	public List<SubjectReport> getFailedSubject(@RequestBody ScoreReportPojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			return customRepo.getFailedSubject(req.getName(), req.getKelas());
@@ -81,7 +81,7 @@ public class ScoreController {
 	@PostMapping("/score/summary")
 	public List<SubjectReportSummary> getSummary(@RequestBody SummaryPojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			List<SubjectReportSummary> sumList = customRepo.getReportSummary(req.getName());
@@ -92,7 +92,7 @@ public class ScoreController {
 	@PostMapping("/score/new")
 	public ResponsePojo newScores(@RequestBody ScorePojo req) {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			Scores sec = new Scores();
@@ -113,7 +113,7 @@ public class ScoreController {
 	@PostMapping("/score/update")
 	public ResponsePojo updateScores(@RequestBody ScorePojo req) {
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			Scores sec = scoreRepo.findById(req.getId()).orElseThrow(() -> new DataNotFoundException(String.valueOf(req.getId()), "Scores"));
@@ -133,7 +133,7 @@ public class ScoreController {
 	@PostMapping("/score/delete")
 	public ResponsePojo deleteScore(@RequestBody RequestIdPojo req){
 		User user = userRepo.findByToken(req.getToken());
-		if(user == null || req.getToken().isBlank()) {
+		if(user == null || req.getToken().isEmpty()) {
 			throw new UnauthorizedException();
 		}else {
 			Scores sec = scoreRepo.findById(req.getId()).orElseThrow(() -> new DataNotFoundException(String.valueOf(req.getId()), "Scores"));
