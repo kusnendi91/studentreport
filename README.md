@@ -1,6 +1,6 @@
 How to build
 buid image first using
-docker build -t studentreport
+docker build -t studentreport .
 
 and compose them using
 docker-compose up --build -d
