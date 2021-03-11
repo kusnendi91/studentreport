@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+    mysql-container:
+      image: mysql:latest 
+      environment:
+        - MYSQL_ROOT_PASSWORD=toor
+        - MYSQL_USER=root
+        - MYSQL_DATABASE=student
+      ports:
+        - "3306:3306"
+      restart: always
+      
+    studentreport-container:
+      image: studentreport
+      restart: on-failure
+      ports:
+        - 8080:8080
+      depends_on:
+        - mysql-container
+      environment:
+        - DATABASE_HOST=mysql-container
+        - DATABASE_USER=root
+        - DATABASE_PASSWORD=toor
+        - DATABASE_NAME=student
+        - DATABASE_PORT=3306
+        
+        
+      
+      
+      

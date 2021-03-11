@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "9ca8d44a-08ce-4219-b728-d3ef54b2a984",
+		"name": "StudentReport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/users/register",
+						"description": "Register new user"
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"kusuma\",\r\n    \"password\":\"p@sse0rd\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/users/register"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"200\",\r\n    \"message\": \"OK\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"kusnendi\",\r\n    \"password\":\"KuSnEnDiganteng101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/users/login",
+						"description": "User login"
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"kusnendi\",\r\n    \"password\":\"KuSnEnDiganteng101\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/users/login"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"username\": \"kusnendi\",\r\n    \"token\": \"342f9737-ee72-4c5e-8b5b-26b68a052bf2\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"token\": \"342f9737-ee72-4c5e-8b5b-26b68a052bf2\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/users/logout",
+						"description": "Logout User"
+					},
+					"response": [
+						{
+							"name": "Logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"token\": \"342f9737-ee72-4c5e-8b5b-26b68a052bf2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/users/logout"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"200\",\r\n    \"message\": \"OK\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"token\": \"e605c23e-21da-4e75-8d8a-e01313105b44\",\r\n        \"newPassword\":\"KuSnEnDiganteng101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/users/forgotpwd",
+						"description": "Request for changing password"
+					},
+					"response": [
+						{
+							"name": "Forgot Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"token\": \"e605c23e-21da-4e75-8d8a-e01313105b44\",\r\n        \"newPassword\":\"KuSnEnDiganteng101\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/users/forgotpwd"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"200\",\r\n    \"message\": \"OK\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Change Username",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/users/changename",
+						"description": "For changing username"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/users/delete/9",
+						"description": "For Delete user "
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AutoGenerate",
+			"item": [
+				{
+					"name": "Generate Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/generate",
+						"description": "For generating username with username admin, and password admin. Also for generating Student and scores"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Add Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"nama\":\"Tiramisu\",\r\n    \"kelas\":\"1\",\r\n    \"tglLahir\":\"20-09-1995\",\r\n    \"namaAyah\":\"Test Ayah 2\",\r\n    \"namaIbu\":\"Test Ibu 2\",\r\n    \"alamatRumah\":\"Test alamat rumah 2\",\r\n    \"alamatEmail\":\"kusnendi@hotmail.com\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/student/new",
+						"description": "For add student"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/student/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student by Id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"id\":24\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/student/getbyid"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student by Name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"name\":\"tiramisu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/student/getbyname"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"id\":99,\r\n    \"nama\":\"Tiramisu T\",\r\n    \"kelas\":\"1\",\r\n    \"tglLahir\":\"20-09-1995\",\r\n    \"namaAyah\":\"Test Ayah 2\",\r\n    \"namaIbu\":\"Test Ibu 2\",\r\n    \"alamatRumah\":\"Test alamat rumah 2\",\r\n    \"alamatEmail\":\"kusnendi@hotmail.com\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/student/update"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"id\":24\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/student/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subject",
+			"item": [
+				{
+					"name": "new subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n        \"subjectName\":\"Test\",\r\n        \"enabled\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/subject/new"
+					},
+					"response": []
+				},
+				{
+					"name": "get all subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/subject/all"
+					},
+					"response": []
+				},
+				{
+					"name": "get enabled subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/subject/enabled"
+					},
+					"response": []
+				},
+				{
+					"name": "update subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n        \"id\":66,\r\n        \"subjectName\":\"Tata Usaha\",\r\n        \"enabled\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/subject/update"
+					},
+					"response": []
+				},
+				{
+					"name": "delete subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n        \"id\":66\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/subject/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "get subject by id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"id\":60\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/subject/getbyid"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Score",
+			"item": [
+				{
+					"name": "New Score",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"id\":null,\r\n    \"studentId\":24,\r\n    \"subjectId\":59,\r\n    \"kelas\":\"3\",\r\n    \"semester\":\"2\",\r\n    \"score\":90\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/score/new"
+					},
+					"response": []
+				},
+				{
+					"name": "get score by id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"id\":270\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/score/getbyid"
+					},
+					"response": []
+				},
+				{
+					"name": "failed subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n        \"name\":\"Murid 1\",\r\n        \"kelas\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/score/failedsubject"
+					},
+					"response": []
+				},
+				{
+					"name": "score summary",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n        \"name\":\"Murid 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/score/summary"
+					},
+					"response": []
+				},
+				{
+					"name": "update score",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"id\":523,\r\n    \"studentId\":24,\r\n    \"subjectId\":59,\r\n    \"kelas\":\"3\",\r\n    \"semester\":\"Semester 2\",\r\n    \"score\":80\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/score/update"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Score",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"7f4ed2e9-f606-43fb-88b5-f05d9d2598b9\",\r\n    \"id\":522\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/score/delete"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
